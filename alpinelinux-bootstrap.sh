@@ -26,8 +26,8 @@ ROOT_DEV=${ROOT_DEV:-/dev/xvdb}
 ROOT=${ROOT:-/mnt}
 ARCH=$(uname -m)
 
-umount $BOOT_DEV
-umount $ROOT_DEV
+umount $BOOT_DEV || /bin/true
+umount $ROOT_DEV || /bin/true
 mkfs.$BOOT_FS -L boot $BOOT_DEV
 mkfs.$ROOT_FS -L root $ROOT_DEV
 mount $ROOT_DEV $ROOT
