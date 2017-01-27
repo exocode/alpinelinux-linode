@@ -33,6 +33,9 @@ mkfs.$ROOT_FS -L root $ROOT_DEV
 mount $ROOT_DEV $ROOT
 mkdir $ROOT/boot
 mount $BOOT_DEV $ROOT/boot
+
+echo "calling:"
+echo $MIRROR/v$REL/main/$ARCH/apk-tools-static-${APKV}.apk
  
 curl -s $MIRROR/v$REL/main/$ARCH/apk-tools-static-${APKV}.apk | tar xz
 ./sbin/apk.static --repository $REPO --update-cache --allow-untrusted \
